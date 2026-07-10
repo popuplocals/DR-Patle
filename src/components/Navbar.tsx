@@ -41,7 +41,7 @@ export default function Navbar() {
         >
           Dr. Sushil Kumar Patle
           <span className="block text-xs font-sans font-normal tracking-wide text-teal-light">
-            Orthopaedic Surgeon
+            Consultant Orthopaedic Surgeon
           </span>
         </a>
 
