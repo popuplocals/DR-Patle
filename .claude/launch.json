@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dr-patle-dev",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "set \"PATH=C:\\Program Files\\nodejs;%PATH%\" && cd /d C:\\Users\\HP\\dr-sushil-patle-website && \"C:\\Program Files\\nodejs\\node.exe\" node_modules\\next\\dist\\bin\\next dev"],
+      "port": 3000
+    }
+  ]
+}
