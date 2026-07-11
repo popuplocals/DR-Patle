@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, MapPin, BadgeCheck } from "lucide-react";
-import { DOCTOR, NAV_LINKS, SERVICES, WEEK_DAYS } from "@/lib/constants";
+import { DOCTOR, FOOTER_LINKS, SERVICES, WEEK_DAYS } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -28,7 +28,7 @@ export default function Footer() {
             Quick Links
           </p>
           <ul className="mt-4 space-y-2">
-            {NAV_LINKS.map((link) => (
+            {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -38,14 +38,6 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/privacy-policy"
-                className="text-sm text-ondark-muted transition-colors hover:text-teal-light"
-              >
-                Privacy Policy
-              </Link>
-            </li>
           </ul>
         </div>
 

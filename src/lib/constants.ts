@@ -184,8 +184,16 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Book Appointment", href: "/book-appointment" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
+];
+
+export const FOOTER_LINKS = [
+  ...NAV_LINKS,
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Book Appointment", href: "/book-appointment" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 export const APPS_SCRIPT_URL =
