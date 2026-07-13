@@ -113,27 +113,27 @@ export type USP = {
 
 export const USPS: USP[] = [
   {
-    title: "Qualified Expertise",
+    title: "Qualified — and Verifiable",
     description:
-      "M.B.B.S., D.Ortho, and M.Ch. Ortho (USAIM) — registered with the MP Medical Council (Reg. No. 4172).",
+      "M.B.B.S., D.Ortho, M.Ch. Ortho (USAIM), MP Medical Council Reg. No. 4172. The registration number is right there on this website — you can check it against the council register, and we'd encourage you to.",
     icon: "GraduationCap",
   },
   {
-    title: "Fellowship in Rheumatology",
+    title: "A Surgeon Who Also Treats Arthritis",
     description:
-      "Advanced fellowship training in rheumatology enables specialised care for arthritis and complex joint conditions, beyond standard orthopaedic practice.",
+      "Most surgeons focus on what can be operated on. The Fellowship in Rheumatology means Dr. Patle also manages the arthritis that medicines and monitoring handle better than any procedure — so you get the right treatment, not just the surgical one.",
     icon: "Award",
   },
   {
-    title: "Complete Care Under One Roof",
+    title: "Everything at One Address",
     description:
-      "Digital X-Ray and a dedicated Physiotherapy Centre at the clinic — diagnosis, treatment, and rehabilitation without running between facilities.",
+      "Consultation, X-ray, plaster room, physiotherapy — all on Main Road, Adhartal. When you're limping or in pain, not being sent across town between diagnosis and treatment isn't a luxury; it's basic sense.",
     icon: "Building2",
   },
   {
-    title: "Patient-First Approach",
+    title: "Straight Answers",
     description:
-      "Every treatment plan is explained clearly to patients and families, with a focus on informed decisions and realistic recovery timelines.",
+      "If you don't need surgery, you'll be told exactly that. If you do, you'll understand why before you decide anything. Patients tell us this is the reason they send their parents and children here.",
     icon: "Users",
   },
 ];

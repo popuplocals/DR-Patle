@@ -38,7 +38,7 @@ export default function BookAppointmentPage() {
       <Navbar />
       <PageHero
         title="Book Your Appointment"
-        tagline="Fill in your details and our clinic team will confirm your slot at the earliest available OPD timing."
+        tagline="Two minutes to fill in, and our team calls you back to confirm your slot — usually the same day. Prefer talking? The numbers are on the right."
         crumbs={[{ label: "Home", href: "/" }, { label: "Book Appointment" }]}
       />
 

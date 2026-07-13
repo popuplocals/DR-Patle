@@ -25,7 +25,7 @@ export default function About() {
         <SectionHeader
           eyebrow="About the Doctor"
           title={`Why Patients Choose ${DOCTOR.name}`}
-          description="A patient-centered approach to orthopaedic care, backed by qualifications, fellowship training, and complete in-clinic facilities."
+          description="Qualifications matter — but so does how you're treated when you walk in worried. Here's what patients say sets this clinic apart."
         />
 
         <motion.p

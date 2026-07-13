@@ -27,7 +27,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Get In Touch"
             title="Book Your Appointment"
-            description="Fill in your details and our clinic team will confirm your slot at the earliest available OPD timing."
+            description="Two minutes to fill in, and our team calls you back to confirm your slot — usually the same day. Prefer talking? The numbers are right there."
           />
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">

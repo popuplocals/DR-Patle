@@ -1,14 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  Building2,
-  Stethoscope,
-  ScanLine,
-  HeartPulse,
-  Armchair,
-  Camera,
-  type LucideIcon,
-} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -18,16 +9,36 @@ import { SITE_URL } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `Gallery | ${DOCTOR.clinicName}, Adhartal Jabalpur`,
-  description: `Photo gallery of ${DOCTOR.clinicName}, Adhartal, Jabalpur — consultation room, digital X-ray facility, and physiotherapy centre of ${DOCTOR.name}.`,
+  description: `Inside ${DOCTOR.clinicName}, Adhartal, Jabalpur — the consultation room, digital X-ray facility, and physiotherapy centre where ${DOCTOR.name} treats patients.`,
   alternates: { canonical: `${SITE_URL}/gallery` },
 };
 
-const PLACEHOLDERS: { label: string; icon: LucideIcon }[] = [
-  { label: "Clinic Exterior", icon: Building2 },
-  { label: "Reception & Waiting Area", icon: Armchair },
-  { label: "Consultation Room", icon: Stethoscope },
-  { label: "Digital X-Ray Facility", icon: ScanLine },
-  { label: "Physiotherapy Centre", icon: HeartPulse },
+const SPACES = [
+  {
+    src: "/images/gallery/clinic-exterior.svg",
+    label: "The Clinic on Main Road",
+    note: "Right on Main Road, Adhartal — look for the board, you can't miss it.",
+  },
+  {
+    src: "/images/gallery/reception.svg",
+    label: "Reception & Waiting Area",
+    note: "Tell the front desk you've arrived; OPD runs in order, and waits are honest.",
+  },
+  {
+    src: "/images/gallery/consultation.svg",
+    label: "Consultation Room",
+    note: "Where you sit down with Dr. Patle — history first, examination second, verdict explained.",
+  },
+  {
+    src: "/images/gallery/xray.svg",
+    label: "Digital X-Ray Room",
+    note: "Imaging happens here, mid-consultation — you see your own films on screen.",
+  },
+  {
+    src: "/images/gallery/physio.svg",
+    label: "Physiotherapy Centre",
+    note: "Parallel bars, mats, and a plan — where fractures and knees finish their recovery.",
+  },
 ];
 
 const breadcrumbLd = {
@@ -48,15 +59,15 @@ export default function GalleryPage() {
       />
       <Navbar />
       <PageHero
-        title="Clinic Gallery"
-        tagline={`A look inside ${DOCTOR.clinicName} — the consultation room, in-house digital X-ray, and dedicated physiotherapy centre.`}
+        title="Inside the Clinic"
+        tagline="A walk through Patle Health Care Center before you visit — the rooms you'll sit in, the equipment that will look after you."
         crumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
       />
 
       <section className="bg-mist py-16 md:py-24">
         <div className="section-container">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <figure className="group overflow-hidden rounded-2xl border border-line bg-white shadow-card">
+            <figure className="group overflow-hidden rounded-2xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
                 <Image
                   src={DOCTOR.photo}
@@ -66,33 +77,49 @@ export default function GalleryPage() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <figcaption className="p-4 text-sm font-semibold text-heading">
-                {DOCTOR.name} — Consultation Room
+              <figcaption className="p-4">
+                <p className="text-sm font-semibold text-heading">
+                  Dr. Patle, at his desk
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-muted">
+                  The spine models behind him aren&apos;t decoration — they get
+                  used in nearly every consultation to show you what&apos;s
+                  going on.
+                </p>
               </figcaption>
             </figure>
 
-            {PLACEHOLDERS.map(({ label, icon: Icon }) => (
+            {SPACES.map((space) => (
               <figure
-                key={label}
-                className="overflow-hidden rounded-2xl border border-line bg-white shadow-card"
+                key={space.label}
+                className="group overflow-hidden rounded-2xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
               >
-                <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 bg-teal-pale">
-                  <Icon className="h-10 w-10 text-teal/40" />
-                  <span className="flex items-center gap-1.5 text-xs font-medium text-faint">
-                    <Camera className="h-3.5 w-3.5" />
-                    Photo coming soon
-                  </span>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={space.src}
+                    alt={`Illustration: ${space.label} at ${DOCTOR.clinicName}`}
+                    width={400}
+                    height={300}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <figcaption className="p-4 text-sm font-semibold text-heading">
-                  {label}
+                <figcaption className="p-4">
+                  <p className="text-sm font-semibold text-heading">
+                    {space.label}
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">
+                    {space.note}
+                  </p>
                 </figcaption>
               </figure>
             ))}
           </div>
 
-          <p className="mt-10 text-center text-sm text-faint">
-            More photographs of the clinic and facilities will be added here
-            shortly.
+          <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-relaxed text-faint">
+            These illustrations are stand-ins while we photograph the clinic
+            properly — real photos of each room are on their way. The doctor,
+            thankfully, is already real.
           </p>
         </div>
       </section>
