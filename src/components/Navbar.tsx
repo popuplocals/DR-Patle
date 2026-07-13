@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -55,18 +56,15 @@ export default function Navbar() {
       )}
 
       <nav className="section-container flex h-full items-center justify-between">
-        <Link href="/" className="group flex items-center gap-3">
-          <span
-            className={`flex h-10 w-10 items-center justify-center rounded-xl bg-teal font-serif text-lg font-bold text-white shadow-[0_2px_8px_rgba(13,148,136,0.15)] transition-all duration-[400ms] ${SPRING_EASE} group-hover:-rotate-[8deg] group-hover:scale-[1.08] group-hover:shadow-[0_4px_16px_rgba(13,148,136,0.3)]`}
-          >
-            P
-          </span>
-          <span className="font-serif text-base font-bold leading-tight text-heading md:text-lg">
-            Dr. Sushil Kumar Patle
-            <span className="block text-[11px] font-sans font-medium tracking-wide text-teal">
-              Consultant Orthopaedic Surgeon
-            </span>
-          </span>
+        <Link href="/" className="group flex shrink-0 items-center">
+          <Image
+            src="/images/logo.png"
+            alt="Dr. Sushil Kumar Patle — Consultant Orthopaedic Surgeon"
+            width={1268}
+            height={286}
+            priority
+            className={`h-9 w-auto transition-transform duration-[400ms] md:h-11 ${SPRING_EASE} group-hover:scale-[1.03]`}
+          />
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
