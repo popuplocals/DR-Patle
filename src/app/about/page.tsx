@@ -51,7 +51,7 @@ export default function AboutPage() {
                   fill
                   priority
                   sizes="(max-width: 1024px) 90vw, 480px"
-                  className="object-cover object-[55%_center]"
+                  className="object-cover object-[62%_center]"
                 />
               </div>
               <div className="mt-4 flex items-center justify-between px-1">
