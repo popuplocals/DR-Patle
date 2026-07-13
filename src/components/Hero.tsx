@@ -6,27 +6,11 @@ import { Phone, CalendarCheck, Star, Clock, BadgeCheck } from "lucide-react";
 import ParticleCanvas from "./ui/ParticleCanvas";
 import { DOCTOR } from "@/lib/constants";
 
-const container = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.23, 1, 0.32, 1] as const },
-  },
-};
-
 export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-hero-gradient relative flex min-h-screen items-center overflow-hidden pt-24 pb-16"
+      className="bg-hero-gradient relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
     >
       <ParticleCanvas />
 
@@ -36,90 +20,27 @@ export default function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-10 left-1/4 h-64 w-64 rounded-full bg-teal-lighter/5 blur-3xl animate-float-slow"
+        className="absolute -bottom-32 -right-16 h-[28rem] w-[28rem] rounded-full bg-teal-light/5 blur-3xl animate-float-slow"
       />
-
-      {/* Full-bleed doctor photo, right-anchored, left edge dissolving into the page */}
-      <motion.div
-        initial={{ opacity: 0, scale: 1.06 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.6, ease: "easeOut" }}
+      <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] lg:block"
+        className="absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-teal-lighter/5 blur-3xl animate-float"
+      />
+      {/* orbit ring */}
+      <div
+        aria-hidden="true"
+        className="absolute -right-40 top-1/2 hidden h-[36rem] w-[36rem] -translate-y-1/2 rounded-full border border-teal/10 lg:block animate-spin-slow"
       >
-        <div
-          className="relative h-full w-full"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 28%, black 58%)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 28%, black 58%)",
-          }}
-        >
-          <Image
-            src={DOCTOR.photo}
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 1024px) 0px, 60vw"
-            className="object-cover object-[68%_30%]"
-          />
-        </div>
-        {/* soft blur where the photo dissolves */}
-        <div className="absolute inset-y-0 left-0 w-[45%] backdrop-blur-[3px] [mask-image:linear-gradient(to_right,black_20%,transparent)]" />
-        {/* cream blend so text stays readable over the fade zone */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/25 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-cream/80 to-transparent" />
-      </motion.div>
+        <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-light/60" />
+      </div>
 
-      {/* Floating info chips over the photo */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.1, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-        className="absolute bottom-24 right-10 z-10 hidden lg:block"
-      >
-        <div className="glass animate-float-slow rounded-2xl px-5 py-4 shadow-lift">
-          <p className="font-serif text-base font-bold text-heading">
-            {DOCTOR.name}
-          </p>
-          <p className="text-xs font-semibold text-teal">{DOCTOR.title}</p>
-          <p className="mt-1 flex items-center gap-1 text-xs text-muted">
-            <Star className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-            {DOCTOR.rating}/5 · {DOCTOR.reviewCount} Google reviews
-          </p>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.3, duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-        className="absolute right-[40%] top-32 z-10 hidden xl:block"
-      >
-        <div className="glass animate-float rounded-2xl px-4 py-3 shadow-lift">
-          <p className="flex items-center gap-2 text-xs font-semibold text-heading">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-            </span>
-            <Clock className="h-3.5 w-3.5 text-teal" />
-            OPD Mon–Sat · 12–4 &amp; 7–9 PM
-          </p>
-        </div>
-      </motion.div>
-
-      <div className="section-container relative z-10 w-full">
+      <div className="section-container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
         <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="max-w-xl lg:max-w-[48%]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <motion.div
-            variants={item}
-            className="mb-6 inline-flex items-center gap-2 rounded-full bg-teal-mint px-4 py-2"
-          >
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-teal-mint px-4 py-2">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75 animate-ping" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
@@ -127,44 +48,38 @@ export default function Hero() {
             <span className="text-sm font-semibold text-heading">
               Accepting Appointments
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            variants={item}
-            className="font-serif text-4xl font-extrabold leading-tight text-heading sm:text-5xl lg:text-6xl"
-          >
+          <h1 className="font-serif text-4xl font-extrabold leading-tight text-heading sm:text-5xl lg:text-6xl">
             <span className="gradient-text">Expert Bone &amp; Joint Care</span>
             <br />
             <span className="text-heading">in Jabalpur</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={item}
-            className="mt-6 max-w-xl text-base leading-relaxed text-body md:text-lg"
-          >
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
             Fractures set right with same-visit X-ray. Arthritis diagnosed
             properly, not just medicated. Sports injuries rehabilitated until
             you trust the joint again. {DOCTOR.name} treats bone and joint
             problems end-to-end at {DOCTOR.clinicName}, Adhartal.
-          </motion.p>
+          </p>
 
-          <motion.div variants={item} className="mt-6 flex flex-wrap gap-2">
-            {DOCTOR.qualifications.map((q) => (
-              <span
+          <div className="mt-6 flex flex-wrap gap-2">
+            {DOCTOR.qualifications.map((q, i) => (
+              <motion.span
                 key={q}
-                className="rounded-full border border-line bg-teal-pale/90 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-heading"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
+                className="rounded-full border border-line bg-teal-pale px-3.5 py-1.5 text-xs font-semibold tracking-wide text-heading"
               >
                 {q}
-              </span>
+              </motion.span>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={item}
-            className="mt-8 flex flex-col gap-4 sm:flex-row"
-          >
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a
-              href="/book-appointment"
+              href="#appointment"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-teal px-7 py-3.5 text-sm font-semibold text-white shadow-hover transition-all hover:bg-teal-dark hover:scale-105"
             >
               <CalendarCheck className="h-5 w-5" />
@@ -172,17 +87,14 @@ export default function Hero() {
             </a>
             <a
               href={`tel:${DOCTOR.phoneRaw}`}
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-teal bg-cream/60 px-7 py-3.5 text-sm font-semibold text-teal backdrop-blur-sm transition-colors hover:bg-teal-pale"
+              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-teal px-7 py-3.5 text-sm font-semibold text-teal transition-colors hover:bg-teal-pale"
             >
               <Phone className="h-5 w-5" />
               Call Now
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={item}
-            className="mt-10 flex flex-wrap items-center gap-6 text-muted"
-          >
+          <div className="mt-10 flex flex-wrap items-center gap-6 text-muted">
             <div className="flex items-center gap-2">
               <div className="flex text-amber-400">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -202,37 +114,74 @@ export default function Hero() {
               <BadgeCheck className="h-4 w-4 text-teal" />
               {DOCTOR.registrationShort}
             </span>
-          </motion.div>
+          </div>
+        </motion.div>
 
-          {/* Mobile / tablet photo — no card, soft fade at the bottom */}
-          <motion.div variants={item} className="relative mt-10 lg:hidden">
-            <div
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl"
-              style={{
-                maskImage:
-                  "linear-gradient(to bottom, black 78%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, black 78%, transparent 100%)",
-              }}
-            >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          className="relative mx-auto w-full max-w-md"
+        >
+          <div className="glass relative rounded-3xl p-6 shadow-lift">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-mist">
               <Image
                 src={DOCTOR.photo}
                 alt={`${DOCTOR.name}, ${DOCTOR.title} at ${DOCTOR.clinicName}, Adhartal, Jabalpur`}
                 fill
                 priority
-                sizes="95vw"
-                className="object-cover object-[62%_30%]"
+                sizes="(max-width: 1024px) 90vw, 400px"
+                className="object-cover object-[62%_center]"
               />
             </div>
-            <div className="glass absolute bottom-3 left-3 rounded-2xl px-4 py-2.5">
-              <p className="font-serif text-sm font-bold text-heading">
+
+            <div className="mt-5">
+              <h3 className="font-serif text-xl font-bold text-heading">
                 {DOCTOR.name}
-              </p>
-              <p className="text-[11px] font-semibold text-teal">
+              </h3>
+              <p className="text-sm font-semibold text-teal">
                 {DOCTOR.title}
               </p>
+              <p className="mt-1 text-xs text-muted">{DOCTOR.degree}</p>
+              <p className="text-xs text-muted">{DOCTOR.fellowship}</p>
             </div>
-          </motion.div>
+
+            <div className="mt-5 rounded-2xl border border-line bg-teal-pale p-4">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-teal">
+                <Clock className="h-3.5 w-3.5" />
+                OPD Hours · {DOCTOR.opd.days}
+              </p>
+              <div className="mt-2 grid grid-cols-2 gap-2 text-sm text-body">
+                <div>
+                  <p className="text-xs text-faint">Afternoon</p>
+                  <p className="font-semibold">{DOCTOR.opd.afternoon}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-faint">Evening</p>
+                  <p className="font-semibold">{DOCTOR.opd.evening}</p>
+                </div>
+              </div>
+              <p className="mt-2 text-xs font-semibold text-red-600">
+                {DOCTOR.opd.closed}
+              </p>
+            </div>
+
+            <div className="mt-4 flex items-center justify-between rounded-2xl border border-amber-400/10 bg-[#FFFBEB] p-4">
+              <div>
+                <p className="text-xs text-faint">Google Rating</p>
+                <p className="flex items-center gap-1 font-serif text-lg font-bold text-heading">
+                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  {DOCTOR.rating}/5
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-faint">Registration</p>
+                <p className="text-sm font-semibold text-teal">
+                  {DOCTOR.registrationShort}
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
