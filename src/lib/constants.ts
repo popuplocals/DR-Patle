@@ -60,48 +60,54 @@ export type Service = {
   tag: string;
   description: string;
   icon: string;
+  image: string;
 };
 
 export const SERVICES: Service[] = [
   {
     slug: "fracture-trauma-care",
     title: "Fracture & Trauma Care",
-    tag: "Emergency & Elective",
+    tag: "Surgery",
     description:
       "Broken bones and injuries diagnosed and treated in one place — X-ray, plaster, fixation, and follow-up, without running between centres.",
     icon: "Stethoscope",
+    image: "/images/services/fracture.jpg",
   },
   {
     slug: "rheumatology-arthritis",
     title: "Rheumatology & Arthritis",
-    tag: "Fellowship-Trained",
+    tag: "Speciality",
     description:
       "Joint pain, swelling, and morning stiffness properly diagnosed — rheumatoid arthritis, osteoarthritis, and gout each treated for what they actually are.",
     icon: "Shield",
+    image: "/images/services/rheumatology.jpg",
   },
   {
     slug: "sports-medicine",
     title: "Sports Medicine",
-    tag: "ACL / Ligament / Meniscus",
+    tag: "Active Care",
     description:
       "Knee and ligament injuries from sport or daily life — assessed precisely, treated honestly, and rehabilitated until you're back on your feet.",
     icon: "Zap",
+    image: "/images/services/sports.jpg",
   },
   {
     slug: "digital-x-ray",
     title: "Digital X-Ray",
-    tag: "In-House Facility",
+    tag: "Diagnostics",
     description:
       "X-ray done during your consultation itself. You walk out with a diagnosis and a plan — not a referral slip and a second trip.",
     icon: "ScanLine",
+    image: "/images/services/xray.jpg",
   },
   {
     slug: "physiotherapy-rehabilitation",
     title: "Physiotherapy & Rehabilitation",
-    tag: "Dedicated Centre",
+    tag: "Recovery",
     description:
       "A physiotherapy centre inside the clinic — recovery after fractures and injuries, guided by the same team that treats you.",
     icon: "HeartPulse",
+    image: "/images/services/physio.jpg",
   },
 ];
 

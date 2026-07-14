@@ -46,6 +46,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-jakarta)", "system-ui", "sans-serif"],
         sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        mono: ["var(--font-space-mono)", "ui-monospace", "monospace"],
       },
       keyframes: {
         "gradient-x": {

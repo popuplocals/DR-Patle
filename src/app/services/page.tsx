@@ -40,9 +40,9 @@ export default function ServicesPage() {
 
       <section className="bg-mist py-16 md:py-24">
         <div className="section-container">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service, i) => (
-              <ServiceCard key={service.slug} service={service} index={i} />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
             ))}
           </div>
 
