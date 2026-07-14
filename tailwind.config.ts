@@ -68,6 +68,10 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "float-soft": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "gradient-x": "gradient-x 6s ease infinite",
@@ -76,6 +80,7 @@ const config: Config = {
         "float-slow": "float-slow 11s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "fade-up": "fade-up 0.7s ease-out forwards",
+        "float-soft": "float-soft 6s ease-in-out infinite",
       },
     },
   },

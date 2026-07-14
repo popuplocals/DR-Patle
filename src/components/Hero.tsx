@@ -34,7 +34,7 @@ export default function Hero() {
         <span className="absolute left-1/2 top-0 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-light/60" />
       </div>
 
-      <div className="section-container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
+      <div className="section-container relative z-10 grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:items-start">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -121,9 +121,10 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          whileHover={{ y: -8, transition: { duration: 0.35 } }}
           className="relative mx-auto w-full max-w-md"
         >
-          <div className="glass relative rounded-3xl p-6 shadow-lift">
+          <div className="glass animate-float-soft relative rounded-3xl p-6 shadow-lift transition-shadow duration-300 hover:shadow-[0_20px_48px_rgba(13,148,136,0.16)]">
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-mist">
               <Image
                 src={DOCTOR.photo}

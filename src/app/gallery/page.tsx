@@ -9,35 +9,59 @@ import { SITE_URL } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `Gallery | ${DOCTOR.clinicName}, Adhartal Jabalpur`,
-  description: `Inside ${DOCTOR.clinicName}, Adhartal, Jabalpur — the consultation room, digital X-ray facility, and physiotherapy centre where ${DOCTOR.name} treats patients.`,
+  description: `Inside ${DOCTOR.clinicName}, Adhartal, Jabalpur — real photos of the physiotherapy centre, plus the consultation room and digital X-ray facility where ${DOCTOR.name} treats patients.`,
   alternates: { canonical: `${SITE_URL}/gallery` },
 };
 
-const SPACES = [
+type Tile = {
+  type: "photo" | "illustration";
+  src: string;
+  label: string;
+  note: string;
+};
+
+const TILES: Tile[] = [
   {
+    type: "photo",
+    src: "/images/gallery/physio-exercise.jpg",
+    label: "Physiotherapy — Exercise Area",
+    note: "Parallel bars, quadriceps table, and shoulder pulleys — where knees and shoulders earn their strength back, one session at a time.",
+  },
+  {
+    type: "photo",
+    src: "/images/gallery/physio-treatment.jpg",
+    label: "Physiotherapy — Treatment Room",
+    note: "Traction beds and electrotherapy units for pain-relief sessions, set up and supervised by the physiotherapy team.",
+  },
+  {
+    type: "photo",
+    src: "/images/gallery/physio-therapy-room.jpg",
+    label: "Therapy & Recovery Room",
+    note: "Hand-exercise boards and therapy tables — the fine-motor side of rehabilitation, for wrists, hands, and fingers.",
+  },
+  {
+    type: "illustration",
     src: "/images/gallery/clinic-exterior.svg",
     label: "The Clinic on Main Road",
     note: "Right on Main Road, Adhartal — look for the board, you can't miss it.",
   },
   {
+    type: "illustration",
     src: "/images/gallery/reception.svg",
     label: "Reception & Waiting Area",
     note: "Tell the front desk you've arrived; OPD runs in order, and waits are honest.",
   },
   {
+    type: "illustration",
     src: "/images/gallery/consultation.svg",
     label: "Consultation Room",
     note: "Where you sit down with Dr. Patle — history first, examination second, verdict explained.",
   },
   {
+    type: "illustration",
     src: "/images/gallery/xray.svg",
     label: "Digital X-Ray Room",
     note: "Imaging happens here, mid-consultation — you see your own films on screen.",
-  },
-  {
-    src: "/images/gallery/physio.svg",
-    label: "Physiotherapy Centre",
-    note: "Parallel bars, mats, and a plan — where fractures and knees finish their recovery.",
   },
 ];
 
@@ -89,27 +113,37 @@ export default function GalleryPage() {
               </figcaption>
             </figure>
 
-            {SPACES.map((space) => (
+            {TILES.map((tile) => (
               <figure
-                key={space.label}
+                key={tile.label}
                 className="group overflow-hidden rounded-2xl border border-line bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-mist">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={space.src}
-                    alt={`Illustration: ${space.label} at ${DOCTOR.clinicName}`}
-                    width={400}
-                    height={300}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {tile.type === "photo" ? (
+                    <Image
+                      src={tile.src}
+                      alt={`${tile.label} at ${DOCTOR.clinicName}, Adhartal, Jabalpur`}
+                      fill
+                      sizes="(max-width: 1024px) 90vw, 400px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={tile.src}
+                      alt={`Illustration: ${tile.label} at ${DOCTOR.clinicName}`}
+                      width={400}
+                      height={300}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                 </div>
                 <figcaption className="p-4">
                   <p className="text-sm font-semibold text-heading">
-                    {space.label}
+                    {tile.label}
                   </p>
                   <p className="mt-1 text-xs leading-relaxed text-muted">
-                    {space.note}
+                    {tile.note}
                   </p>
                 </figcaption>
               </figure>
@@ -117,9 +151,8 @@ export default function GalleryPage() {
           </div>
 
           <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-relaxed text-faint">
-            These illustrations are stand-ins while we photograph the clinic
-            properly — real photos of each room are on their way. The doctor,
-            thankfully, is already real.
+            The physiotherapy centre photos are the real thing. The remaining
+            illustrations swap out for photographs as we shoot each room.
           </p>
         </div>
       </section>
