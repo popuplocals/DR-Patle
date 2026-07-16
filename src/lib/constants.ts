@@ -196,3 +196,10 @@ export const FOOTER_LINKS = [
 
 export const APPS_SCRIPT_URL =
   process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || "";
+
+// Shared token the Apps Script checks before accepting a booking.
+// Not a real secret (it ships in the JS bundle) — it exists to turn away
+// drive-by spam bots that POST to any URL they find. Must match
+// CONFIG.SHARED_TOKEN in docs/booking-backend/Code.gs.
+export const BOOKING_TOKEN =
+  process.env.NEXT_PUBLIC_BOOKING_TOKEN || "phc-adhartal-4172";

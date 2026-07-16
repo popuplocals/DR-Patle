@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
-import { APPS_SCRIPT_URL, DOCTOR } from "@/lib/constants";
+import { APPS_SCRIPT_URL, BOOKING_TOKEN, DOCTOR } from "@/lib/constants";
 
 type FormState = {
   name: string;
@@ -34,6 +34,9 @@ export default function BookingForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">(
     "idle"
   );
+  const [serverMessage, setServerMessage] = useState("");
+  // honeypot — invisible to humans, bots fill it and get silently dropped
+  const [website, setWebsite] = useState("");
 
   const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -42,22 +45,39 @@ export default function BookingForm() {
     e.preventDefault();
 
     if (!APPS_SCRIPT_URL) {
+      setServerMessage("");
       setStatus("error");
       return;
     }
 
     setStatus("submitting");
+    setServerMessage("");
 
     try {
-      const response = await fetch(APPS_SCRIPT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "text/plain;charset=utf-8",
-        },
-        body: JSON.stringify(form),
+      // URL-encoded body = a CORS "simple request" — no preflight,
+      // which is the one shape Apps Script accepts cross-origin.
+      const body = new URLSearchParams({
+        token: BOOKING_TOKEN,
+        name: form.name.trim(),
+        mobile: form.mobile,
+        date: form.date,
+        timeSlot: form.timeSlot,
+        visitType: form.visitType,
+        problem: form.problem.trim(),
+        website, // honeypot, must be empty
       });
 
+      const response = await fetch(APPS_SCRIPT_URL, { method: "POST", body });
       if (!response.ok) throw new Error("Submission failed");
+
+      const result = (await response.json()) as { ok: boolean; error?: string };
+      if (!result.ok) {
+        // friendly validation messages from the backend (e.g. duplicate)
+        if (result.error && result.error.length > 20) {
+          setServerMessage(result.error);
+        }
+        throw new Error(result.error || "Submission rejected");
+      }
 
       setStatus("success");
       setForm(INITIAL_STATE);
@@ -110,6 +130,20 @@ export default function BookingForm() {
       className="relative overflow-hidden rounded-3xl border border-line bg-white p-7 shadow-card md:p-10"
     >
       <span aria-hidden="true" className="accent-line absolute inset-x-0 top-0 h-1" />
+
+      {/* Honeypot — hidden from humans (and screen readers); bots fill it */}
+      <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+        />
+      </div>
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="name" className={labelClasses}>
@@ -119,6 +153,7 @@ export default function BookingForm() {
             id="name"
             required
             type="text"
+            maxLength={80}
             value={form.name}
             onChange={(e) => update("name", e.target.value)}
             placeholder="Enter your full name"
@@ -135,9 +170,9 @@ export default function BookingForm() {
             required
             type="tel"
             inputMode="numeric"
-            pattern="[0-9]{10}"
+            pattern="[6-9][0-9]{9}"
             maxLength={10}
-            title="Please enter a 10-digit mobile number"
+            title="Please enter a valid 10-digit mobile number"
             value={form.mobile}
             onChange={(e) =>
               update("mobile", e.target.value.replace(/\D/g, "").slice(0, 10))
@@ -219,6 +254,7 @@ export default function BookingForm() {
             id="problem"
             required
             rows={4}
+            maxLength={500}
             value={form.problem}
             onChange={(e) => update("problem", e.target.value)}
             placeholder="e.g. Knee pain for the past 2 weeks, difficulty walking"
@@ -229,8 +265,8 @@ export default function BookingForm() {
 
       {status === "error" && (
         <p className="mt-4 text-sm font-medium text-red-600">
-          Something went wrong while submitting your request. Please call us
-          directly at {DOCTOR.phone}.
+          {serverMessage ||
+            `Something went wrong while submitting your request. Please call us directly at ${DOCTOR.phone}.`}
         </p>
       )}
 
