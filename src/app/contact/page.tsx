@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
-import Contact from "@/components/Contact";
+import ContactStory from "@/components/ContactStory";
 import { DOCTOR } from "@/lib/constants";
 import { SITE_URL } from "@/lib/schema";
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
         tagline={`${DOCTOR.clinicName} is on Main Road, Adhartal, Jabalpur — easy to find and easy to reach.`}
         crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
-      <Contact />
+      <ContactStory />
       <Footer />
       <WhatsAppButton />
     </main>
