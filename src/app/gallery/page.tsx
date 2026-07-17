@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -81,7 +80,6 @@ export default function GalleryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <Navbar />
       <PageHero
         title="Inside the Clinic"
         tagline="A walk through Patle Health Care Center before you visit — the rooms you'll sit in, the equipment that will look after you."

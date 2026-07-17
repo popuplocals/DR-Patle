@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarCheck, ChevronDown } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -92,7 +91,6 @@ export default function FAQPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Navbar />
       <PageHero
         title="Frequently Asked Questions"
         tagline="Answers to the questions patients ask most about appointments, timings, and clinic facilities."

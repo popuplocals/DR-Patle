@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Clock, MapPin, Phone } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -35,7 +34,6 @@ export default function BookAppointmentPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <Navbar />
       <PageHero
         title="Book Your Appointment"
         tagline="Two minutes to fill in, and our team calls you back to confirm your slot — usually the same day. Prefer talking? The numbers are on the right."

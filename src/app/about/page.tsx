@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, CalendarCheck, Clock } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -33,7 +32,6 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <Navbar />
       <PageHero
         title={`About ${DOCTOR.name}`}
         tagline={`${DOCTOR.degree} · ${DOCTOR.fellowship}`}

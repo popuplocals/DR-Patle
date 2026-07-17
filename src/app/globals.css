@@ -29,9 +29,12 @@ body {
   overscroll-behavior-y: none;
 }
 
-/* Soft fade-rise on every route change (see app/template.tsx) */
+/* Soft fade-rise on every route change (see app/template.tsx).
+   NOTE: no fill-mode — the transform must fully release when the
+   animation ends, otherwise it becomes a containing block and the
+   fixed navbar scrolls away with the page. */
 .page-enter {
-  animation: page-enter 0.45s cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation: page-enter 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 }
 @keyframes page-enter {
   from {

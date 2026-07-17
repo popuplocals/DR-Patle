@@ -8,7 +8,6 @@ import {
   ChevronDown,
   Phone,
 } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -95,7 +94,6 @@ export default function ServiceDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Navbar />
       <PageHero
         title={service.title}
         tagline={service.heroTagline}

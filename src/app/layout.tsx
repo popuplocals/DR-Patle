@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import { DOCTOR } from "@/lib/constants";
 import { jsonLd, SITE_URL } from "@/lib/schema";
@@ -76,6 +77,10 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         <SmoothScroll />
+        {/* Navbar lives OUTSIDE the page-transition wrapper (app/template.tsx):
+            page animations can never move it, and it doesn't re-mount between
+            routes — it stays pinned while content fades beneath it. */}
+        <Navbar />
         {children}
       </body>
     </html>

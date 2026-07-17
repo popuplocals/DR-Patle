@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -63,7 +62,6 @@ const SECTIONS = [
 export default function PrivacyPolicyPage() {
   return (
     <main className="overflow-x-hidden">
-      <Navbar />
       <PageHero
         title="Privacy Policy"
         tagline="How information submitted through this website is collected, used, and protected."

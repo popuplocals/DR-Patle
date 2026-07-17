@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarCheck } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PageHero from "@/components/ui/PageHero";
@@ -31,7 +30,6 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <Navbar />
       <PageHero
         title="Orthopaedic Services"
         tagline="Five things we do, done properly — fracture care, arthritis treatment, sports injury care, X-ray, and rehabilitation, all at one clinic in Adhartal."

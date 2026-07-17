@@ -1,5 +1,4 @@
 import { Clock, MapPin, Phone } from "lucide-react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
@@ -15,7 +14,6 @@ import { DOCTOR } from "@/lib/constants";
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <Navbar />
       <Hero />
       <Stats />
       <Services />
