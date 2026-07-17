@@ -57,10 +57,8 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted md:text-lg">
-            Fractures set right with same-visit X-ray. Arthritis diagnosed
-            properly, not just medicated. Sports injuries rehabilitated until
-            you trust the joint again. {DOCTOR.name} treats bone and joint
-            problems end-to-end at {DOCTOR.clinicName}, Adhartal.
+            From a broken bone to long-standing joint pain — get a clear
+            diagnosis and an honest treatment plan, at one clinic in Adhartal.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">

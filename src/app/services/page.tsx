@@ -32,7 +32,7 @@ export default function ServicesPage() {
       />
       <PageHero
         title="Orthopaedic Services"
-        tagline="Five things we do, done properly — fracture care, arthritis treatment, sports injury care, X-ray, and rehabilitation, all at one clinic in Adhartal."
+        tagline="Each service explained in plain language — what we do, when to come, and what to expect."
         crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
       />
 

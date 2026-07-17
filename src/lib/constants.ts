@@ -121,25 +121,25 @@ export const USPS: USP[] = [
   {
     title: "Qualified — and Verifiable",
     description:
-      "M.B.B.S., D.Ortho, M.Ch. Ortho (USAIM), MP Medical Council Reg. No. 4172. The registration number is right there on this website — you can check it against the council register, and we'd encourage you to.",
+      "MP Medical Council Reg. No. 4172 — check it on the council register. We'd encourage you to.",
     icon: "GraduationCap",
   },
   {
     title: "A Surgeon Who Also Treats Arthritis",
     description:
-      "Most surgeons focus on what can be operated on. The Fellowship in Rheumatology means Dr. Patle also manages the arthritis that medicines and monitoring handle better than any procedure — so you get the right treatment, not just the surgical one.",
+      "Fellowship-trained in rheumatology — so arthritis gets medicines and monitoring when that works better than surgery.",
     icon: "Award",
   },
   {
     title: "Everything at One Address",
     description:
-      "Consultation, X-ray, plaster room, physiotherapy — all on Main Road, Adhartal. When you're limping or in pain, not being sent across town between diagnosis and treatment isn't a luxury; it's basic sense.",
+      "Consultation, X-ray, plaster, physiotherapy — no being sent across town mid-treatment.",
     icon: "Building2",
   },
   {
     title: "Straight Answers",
     description:
-      "If you don't need surgery, you'll be told exactly that. If you do, you'll understand why before you decide anything. Patients tell us this is the reason they send their parents and children here.",
+      "If you don't need surgery, you'll be told exactly that. If you do, you'll understand why first.",
     icon: "Users",
   },
 ];

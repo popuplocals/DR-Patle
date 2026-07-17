@@ -42,7 +42,7 @@ export default function Services() {
         <SectionHeader
           eyebrow="What We Treat"
           title="What We Treat, and How"
-          description="Fractures, arthritis, sports injuries — diagnosed with same-visit X-ray, treated honestly, and rehabilitated at the clinic's own physiotherapy centre."
+          description="Five things, done properly. Tap any card to see what to expect."
         />
 
         {/* Row 1 — two landscape cards */}
