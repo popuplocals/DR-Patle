@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -43,6 +44,7 @@ export default function ServiceDetailPage({ params }: Props) {
   const service = getServiceContent(params.slug);
   if (!service) notFound();
 
+  const base = SERVICES.find((s) => s.slug === service.slug);
   const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
   const jsonLd = {
@@ -107,6 +109,28 @@ export default function ServiceDetailPage({ params }: Props) {
       <section className="bg-white py-16 md:py-20">
         <div className="section-container grid grid-cols-1 gap-12 lg:grid-cols-3">
           <div className="lg:col-span-2">
+            {base && (
+              <div className="group relative mb-10 cursor-pointer overflow-hidden rounded-3xl shadow-card transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-2 hover:shadow-[0_24px_48px_rgba(13,148,136,0.18)]">
+                <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[21/10]">
+                  <Image
+                    src={base.image}
+                    alt={`${service.title} at ${DOCTOR.clinicName}, Adhartal, Jabalpur`}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className="transform-gpu object-cover transition-transform duration-700 ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]"
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(0,0,0,0.4)_100%)]"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-[13px] py-1.5 font-mono text-[10.5px] font-bold uppercase tracking-[1.4px] text-teal shadow-[0_4px_12px_rgba(13,148,136,0.16)]">
+                  {base.tag}
+                </span>
+              </div>
+            )}
+
             {service.overview.map((para, i) => (
               <p
                 key={i}
@@ -234,9 +258,20 @@ export default function ServiceDetailPage({ params }: Props) {
                   <li key={s.slug}>
                     <Link
                       href={`/services/${s.slug}`}
-                      className="block rounded-xl px-3 py-2.5 text-sm font-medium text-body transition-colors hover:bg-teal-pale hover:text-heading"
+                      className="group flex items-center gap-3 rounded-xl p-2 transition-all duration-300 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-0.5 hover:bg-teal-pale hover:shadow-card"
                     >
-                      {s.title}
+                      <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg">
+                        <Image
+                          src={s.image}
+                          alt=""
+                          fill
+                          sizes="48px"
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </span>
+                      <span className="text-sm font-medium text-body transition-colors group-hover:text-heading">
+                        {s.title}
+                      </span>
                     </Link>
                   </li>
                 ))}
