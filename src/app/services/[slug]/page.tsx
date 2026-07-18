@@ -98,13 +98,14 @@ export default function ServiceDetailPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHero
-        title={service.title}
-        tagline={service.heroTagline}
-        crumbs={[
+        breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Services", href: "/services" },
           { label: service.title },
         ]}
+        heading={service.heroHeading}
+        highlightWords={service.heroHighlightWords}
+        subtitle={service.heroTagline}
       />
 
       <section className="bg-white py-16 md:py-20">

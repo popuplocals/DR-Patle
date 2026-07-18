@@ -92,9 +92,10 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageHero
-        title="Frequently Asked Questions"
-        tagline="Answers to the questions patients ask most about appointments, timings, and clinic facilities."
-        crumbs={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
+        heading="Frequently Asked Questions"
+        highlightWords={["Frequently", "Asked", "Questions"]}
+        subtitle="Common questions about appointments, treatments, timings, and what to expect at the clinic."
       />
 
       <section className="bg-white py-16 md:py-24">

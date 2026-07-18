@@ -35,9 +35,11 @@ export default function BookAppointmentPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <PageHero
-        title="Book Your Appointment"
-        tagline="Two minutes to fill in, and our team calls you back to confirm your slot — usually the same day. Prefer talking? The numbers are on the right."
-        crumbs={[{ label: "Home", href: "/" }, { label: "Book Appointment" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Book Appointment" }]}
+        heading="Book Your Appointment"
+        highlightWords={["Book", "Appointment"]}
+        subtitle="Fill the form below — our clinic will confirm within 2 hours. Walk-ins also welcome during OPD hours."
+        showUnderline={false}
       />
 
       <section className="bg-mist py-16 md:py-24">

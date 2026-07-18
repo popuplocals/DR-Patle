@@ -6,6 +6,8 @@ export type ServiceFAQ = {
 export type ServiceContent = {
   slug: string;
   title: string;
+  heroHeading: string;
+  heroHighlightWords: string[];
   metaTitle: string;
   metaDescription: string;
   heroTagline: string;
@@ -22,6 +24,8 @@ export const SERVICES_CONTENT: ServiceContent[] = [
   {
     slug: "fracture-trauma-care",
     title: "Fracture & Trauma Care",
+    heroHeading: "Fracture and Trauma Care",
+    heroHighlightWords: ["Fracture", "Trauma"],
     metaTitle: "Fracture Treatment in Jabalpur — Bone Injury & Trauma Care",
     metaDescription:
       "Broken bone? Get fracture treatment in Jabalpur at Patle Health Care Center, Adhartal. Dr. Sushil Kumar Patle — X-ray, diagnosis, plaster or surgery, and follow-up at one clinic. OPD Mon–Sat.",
@@ -97,6 +101,8 @@ export const SERVICES_CONTENT: ServiceContent[] = [
   {
     slug: "rheumatology-arthritis",
     title: "Rheumatology & Arthritis Care",
+    heroHeading: "Rheumatology and Arthritis Treatment",
+    heroHighlightWords: ["Rheumatology", "Arthritis"],
     metaTitle: "Arthritis Doctor in Jabalpur — Joint Pain & Rheumatology Clinic",
     metaDescription:
       "Joint pain, swelling, or morning stiffness? Consult Dr. Sushil Kumar Patle in Jabalpur — orthopaedic surgeon with Fellowship in Rheumatology. Diagnosis and treatment of rheumatoid arthritis, osteoarthritis & gout at Adhartal.",
@@ -172,6 +178,8 @@ export const SERVICES_CONTENT: ServiceContent[] = [
   {
     slug: "sports-medicine",
     title: "Sports Medicine",
+    heroHeading: "Sports Injury Treatment",
+    heroHighlightWords: ["Sports", "Injury"],
     metaTitle: "ACL & Sports Injury Treatment in Jabalpur — Knee Ligament Clinic",
     metaDescription:
       "ACL tear, meniscus injury, or recurring ankle sprain? Sports injury treatment in Jabalpur by Dr. Sushil Kumar Patle at Patle Health Care Center, Adhartal — precise diagnosis, honest advice on surgery, structured rehab.",
@@ -247,6 +255,8 @@ export const SERVICES_CONTENT: ServiceContent[] = [
   {
     slug: "digital-x-ray",
     title: "Digital X-Ray",
+    heroHeading: "In-House Digital X-Ray",
+    heroHighlightWords: ["Digital", "X-Ray"],
     metaTitle: "Digital X-Ray in Adhartal Jabalpur — Same-Visit Bone Imaging",
     metaDescription:
       "In-house digital X-ray at Patle Health Care Center, Adhartal, Jabalpur. X-ray during your orthopaedic consultation with Dr. Sushil Kumar Patle — immediate images, same-day diagnosis, no separate imaging centre trips.",
@@ -314,6 +324,8 @@ export const SERVICES_CONTENT: ServiceContent[] = [
   {
     slug: "physiotherapy-rehabilitation",
     title: "Physiotherapy & Rehabilitation",
+    heroHeading: "Physiotherapy and Rehabilitation",
+    heroHighlightWords: ["Physiotherapy", "Rehabilitation"],
     metaTitle: "Physiotherapy Centre in Adhartal Jabalpur — Injury & Post-Op Rehab",
     metaDescription:
       "Physiotherapy centre inside Patle Health Care Center, Adhartal, Jabalpur — rehabilitation after fractures and surgery, arthritis exercise programs, and sports injury rehab, coordinated directly with Dr. Sushil Kumar Patle.",

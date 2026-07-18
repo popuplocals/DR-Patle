@@ -37,9 +37,10 @@ export default function TestimonialsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <PageHero
-        title="What Our Patients Say"
-        tagline="Real experiences from patients treated at Patle Health Care Center."
-        crumbs={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
+        heading="What Our Patients Say"
+        highlightWords={["Patients", "Say"]}
+        subtitle="Real experiences from patients treated at Patle Health Care Center."
       />
 
       <section className="bg-mist py-16 md:py-24">

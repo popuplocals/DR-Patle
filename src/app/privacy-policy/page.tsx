@@ -63,9 +63,10 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="overflow-x-hidden">
       <PageHero
-        title="Privacy Policy"
-        tagline="How information submitted through this website is collected, used, and protected."
-        crumbs={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]}
+        heading="Privacy Policy"
+        highlightWords={["Privacy", "Policy"]}
+        subtitle="How information submitted through this website is collected, used, and protected."
       />
 
       <section className="bg-white py-16 md:py-20">

@@ -29,9 +29,10 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <PageHero
-        title="Contact & Location"
-        tagline={`${DOCTOR.clinicName} is on Main Road, Adhartal, Jabalpur — easy to find and easy to reach.`}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+        heading="Contact and Location"
+        highlightWords={["Contact", "Location"]}
+        subtitle="Visit Patle Health Care Center, Main Road, Adhartal, Jabalpur — or reach us by phone or WhatsApp."
       />
       <ContactStory />
       <Footer />

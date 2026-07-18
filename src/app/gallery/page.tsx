@@ -81,9 +81,10 @@ export default function GalleryPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <PageHero
-        title="Inside the Clinic"
-        tagline="A walk through Patle Health Care Center before you visit — the rooms you'll sit in, the equipment that will look after you."
-        crumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
+        heading="Clinic Gallery"
+        highlightWords={["Gallery"]}
+        subtitle="Inside Patle Health Care Center — our facilities, equipment, and the space where you'll be treated."
       />
 
       <section className="bg-mist py-16 md:py-24">

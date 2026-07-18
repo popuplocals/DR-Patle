@@ -31,9 +31,10 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <PageHero
-        title="Orthopaedic Services"
-        tagline="Each service explained in plain language — what we do, when to come, and what to expect."
-        crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        heading="Our Orthopaedic Services"
+        highlightWords={["Orthopaedic", "Services"]}
+        subtitle="Comprehensive bone and joint care — from diagnosis to surgery to rehabilitation, all under one roof."
       />
 
       <section className="bg-mist py-16 md:py-24">
