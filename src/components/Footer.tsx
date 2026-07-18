@@ -1,34 +1,52 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, MapPin, BadgeCheck } from "lucide-react";
-import { DOCTOR, FOOTER_LINKS, SERVICES, WEEK_DAYS } from "@/lib/constants";
+import { BadgeCheck, MapPin, Navigation, Phone } from "lucide-react";
+import { DOCTOR } from "@/lib/constants";
+
+const LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+  { label: "Book Appointment", href: "/book-appointment" },
+];
 
 export default function Footer() {
+  const { lat, lng } = DOCTOR.coordinates;
+  const mapSrc = `https://maps.google.com/maps?q=${lat},${lng}&hl=en&z=15&output=embed`;
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+
   return (
-    <footer className="bg-darkteal-deep pt-16 pb-8 text-white">
-      <div className="section-container grid grid-cols-1 gap-10 border-b border-white/5 pb-10 sm:grid-cols-2 md:grid-cols-5">
-        <div>
-          <p className="font-serif text-lg font-bold text-white">
-            {DOCTOR.name}
-          </p>
-          <p className="mt-1 text-sm text-teal-light">{DOCTOR.title}</p>
-          <p className="mt-3 text-sm leading-relaxed text-ondark-muted">
-            {DOCTOR.degree}
-          </p>
-          <p className="text-sm leading-relaxed text-ondark-muted">
-            {DOCTOR.fellowship}
-          </p>
-          <p className="mt-3 flex items-center gap-1.5 text-xs text-ondark-muted">
-            <BadgeCheck className="h-3.5 w-3.5 text-teal-light" />
+    <footer className="bg-darkteal-deep pt-12 pb-6 text-white">
+      <div className="section-container grid grid-cols-1 gap-8 border-b border-white/5 pb-8 sm:grid-cols-2 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <Link href="/" className="inline-block">
+            {/* dark navy logo → white via invert for the dark footer */}
+            <Image
+              src="/images/logo.png"
+              alt={`${DOCTOR.name} — ${DOCTOR.title}`}
+              width={1268}
+              height={286}
+              className="h-10 w-auto brightness-0 invert md:h-11"
+            />
+          </Link>
+          <p className="mt-4 flex items-center gap-1.5 text-xs text-ondark-muted">
+            <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-teal-light" />
             {DOCTOR.registration}
+          </p>
+          <p className="mt-2 text-xs text-ondark-muted">
+            OPD: {DOCTOR.opd.days} · 12–4 PM &amp; 7–9 PM ·{" "}
+            <span className="font-medium text-red-400">{DOCTOR.opd.closed}</span>
           </p>
         </div>
 
-        <div>
+        <div className="lg:col-span-2">
           <p className="text-sm font-semibold uppercase tracking-wide text-ondark">
-            Quick Links
+            Explore
           </p>
           <ul className="mt-4 space-y-2">
-            {FOOTER_LINKS.map((link) => (
+            {LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -41,25 +59,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-ondark">
-            Services
-          </p>
-          <ul className="mt-4 space-y-2">
-            {SERVICES.map((service) => (
-              <li key={service.slug}>
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="text-sm text-ondark-muted transition-colors hover:text-teal-light"
-                >
-                  {service.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
+        <div className="lg:col-span-3">
           <p className="text-sm font-semibold uppercase tracking-wide text-ondark">
             Contact
           </p>
@@ -85,39 +85,41 @@ export default function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="lg:col-span-3">
           <p className="text-sm font-semibold uppercase tracking-wide text-ondark">
-            OPD Days
+            Find Us
           </p>
-          <div className="mt-4 grid grid-cols-7 gap-1.5">
-            {WEEK_DAYS.map((day) => (
-              <div
-                key={day.label}
-                title={day.open ? "Open" : "Closed"}
-                className={`flex flex-col items-center rounded-lg px-1 py-2 text-[10px] font-semibold ${
-                  day.open
-                    ? "bg-teal/15 text-teal-light"
-                    : "bg-red-600/10 text-red-400"
-                }`}
-              >
-                {day.label}
-              </div>
-            ))}
+          <div className="mt-4 overflow-hidden rounded-xl border border-white/10">
+            <iframe
+              title={`${DOCTOR.clinicName} location map`}
+              src={mapSrc}
+              className="h-36 w-full border-0 grayscale-[0.4]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-          <p className="mt-3 text-xs text-ondark-muted">
-            {DOCTOR.opd.afternoon}
-          </p>
-          <p className="text-xs text-ondark-muted">{DOCTOR.opd.evening}</p>
-          <p className="mt-1 text-xs font-medium text-red-400">
-            {DOCTOR.opd.closed}
-          </p>
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-teal-light transition-colors hover:text-white"
+          >
+            <Navigation className="h-4 w-4" />
+            Get Directions
+          </a>
         </div>
       </div>
 
       <div className="section-container mt-6 flex flex-col items-center justify-between gap-3 text-xs sm:flex-row">
         <p className="text-ondark-muted/70">
           &copy; {new Date().getFullYear()} {DOCTOR.clinicName}. All rights
-          reserved.
+          reserved. ·{" "}
+          <Link
+            href="/privacy-policy"
+            className="transition-colors hover:text-teal-light"
+          >
+            Privacy Policy
+          </Link>
         </p>
         <p className="text-teal-light">Website by Pop Up Local</p>
       </div>
