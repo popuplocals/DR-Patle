@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BadgeCheck, CalendarCheck, Clock } from "lucide-react";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import PageHero from "@/components/ui/PageHero";
+import AboutHero from "@/components/AboutHero";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
 import { DOCTOR } from "@/lib/constants";
@@ -32,11 +32,7 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
-      <PageHero
-        title={`About ${DOCTOR.name}`}
-        tagline={`${DOCTOR.degree} · ${DOCTOR.fellowship}`}
-        crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
-      />
+      <AboutHero />
 
       <section className="bg-white py-16 md:py-24">
         <div className="section-container grid grid-cols-1 items-start gap-12 lg:grid-cols-5">
