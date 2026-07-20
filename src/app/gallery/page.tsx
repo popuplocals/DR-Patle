@@ -8,7 +8,7 @@ import { SITE_URL } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `Gallery | ${DOCTOR.clinicName}, Adhartal Jabalpur`,
-  description: `Inside ${DOCTOR.clinicName}, Adhartal, Jabalpur — real photos of the physiotherapy centre, plus the consultation room and digital X-ray facility where ${DOCTOR.name} treats patients.`,
+  description: `Inside ${DOCTOR.clinicName}, Adhartal, Jabalpur — real photos of the physiotherapy centre and the digital X-ray facility where ${DOCTOR.name} treats patients.`,
   alternates: { canonical: `${SITE_URL}/gallery` },
 };
 
@@ -43,18 +43,6 @@ const TILES: Tile[] = [
     src: "/images/gallery/clinic-exterior.svg",
     label: "The Clinic on Main Road",
     note: "Right on Main Road, Adhartal — look for the board, you can't miss it.",
-  },
-  {
-    type: "illustration",
-    src: "/images/gallery/reception.svg",
-    label: "Reception & Waiting Area",
-    note: "Tell the front desk you've arrived; OPD runs in order, and waits are honest.",
-  },
-  {
-    type: "illustration",
-    src: "/images/gallery/consultation.svg",
-    label: "Consultation Room",
-    note: "Where you sit down with Dr. Patle — history first, examination second, verdict explained.",
   },
   {
     type: "photo",
@@ -151,8 +139,7 @@ export default function GalleryPage() {
 
           <p className="mx-auto mt-10 max-w-xl text-center text-sm leading-relaxed text-faint">
             The X-ray room and physiotherapy centre photos are the real thing.
-            The remaining illustrations swap out for photographs as we shoot
-            each room.
+            The clinic-front illustration swaps out for a photograph soon.
           </p>
         </div>
       </section>
