@@ -110,28 +110,47 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-1/2 top-full w-72 -translate-x-1/2 pt-3"
+                      className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3"
                     >
-                      <div className="overflow-hidden rounded-2xl border border-line bg-white p-2 shadow-lift">
-                        {SERVICES.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/services/${service.slug}`}
-                            className={`block rounded-xl px-4 py-2.5 text-sm font-medium transition-colors hover:bg-teal-pale hover:text-heading ${
-                              pathname === `/services/${service.slug}`
-                                ? "bg-teal-pale text-teal"
-                                : "text-body"
-                            }`}
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                        <div className="mt-1 border-t border-line-light pt-1">
+                      <div className="overflow-hidden rounded-2xl border border-line bg-white p-3 shadow-lift">
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {SERVICES.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/services/${service.slug}`}
+                              className={`group/item flex items-center gap-3 rounded-xl p-2.5 transition-all duration-300 ease-[cubic-bezier(.23,1,.32,1)] hover:bg-teal-pale ${
+                                pathname === `/services/${service.slug}`
+                                  ? "bg-teal-pale"
+                                  : ""
+                              }`}
+                            >
+                              <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg bg-mist">
+                                <Image
+                                  src={service.image}
+                                  alt=""
+                                  fill
+                                  sizes="48px"
+                                  className="object-cover transition-transform duration-500 group-hover/item:scale-110"
+                                />
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block font-mono text-[9.5px] font-bold uppercase tracking-[1.4px] text-teal-soft">
+                                  {service.tag}
+                                </span>
+                                <span className="mt-0.5 block truncate text-sm font-semibold text-heading transition-colors group-hover/item:text-teal">
+                                  {service.title}
+                                </span>
+                              </span>
+                            </Link>
+                          ))}
                           <Link
                             href="/services"
-                            className="block rounded-xl px-4 py-2.5 text-sm font-semibold text-teal transition-colors hover:bg-teal-pale"
+                            className="group/all flex items-center justify-center gap-2 rounded-xl bg-teal p-2.5 text-sm font-semibold text-white transition-all duration-300 ease-[cubic-bezier(.23,1,.32,1)] hover:bg-teal-dark"
                           >
-                            View All Services →
+                            View All Services
+                            <span className="transition-transform duration-300 group-hover/all:translate-x-1">
+                              →
+                            </span>
                           </Link>
                         </div>
                       </div>
