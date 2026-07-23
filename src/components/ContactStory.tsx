@@ -79,6 +79,21 @@ export default function ContactStory() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-gradient-to-r from-cream via-cream/75 to-cream/10 lg:via-cream/45 lg:to-transparent"
       />
+      {/* name chip floating above the map pin (pin renders at iframe center) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-[1] hidden -translate-x-1/2 -translate-y-[calc(100%+34px)] flex-col items-center md:flex"
+      >
+        <div className="rounded-2xl border border-line bg-white/95 px-4 py-2.5 text-center shadow-lift backdrop-blur-sm">
+          <p className="text-sm font-bold leading-tight text-heading">
+            {DOCTOR.name}
+          </p>
+          <p className="mt-0.5 text-[11px] font-semibold text-teal">
+            {DOCTOR.clinicName}
+          </p>
+        </div>
+        <div className="-mt-1.5 h-3 w-3 rotate-45 border-b border-r border-line bg-white/95" />
+      </div>
 
       <div className="section-container relative py-20 md:py-28">
         <div className="flex w-full max-w-[380px] flex-col gap-3.5 max-md:max-w-none">
